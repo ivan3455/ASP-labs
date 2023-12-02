@@ -1,13 +1,19 @@
 var builder = WebApplication.CreateBuilder(args);
+
+// Додання кешу в пам'яті до сервісів додатка
 builder.Services.AddDistributedMemoryCache();
 var app = builder.Build();
 
+// Отримання поточної дати та часу для використання у логах помилок
 DateTime currentTime = DateTime.Now;
+
+// Визначення шляху до файлу журналу помилок
 var ErrorLogsFilePath = Path.Combine(Directory.GetCurrentDirectory(), "ErrorLog/ErrorLogs.txt");
 app.UseDeveloperExceptionPage();
 
 app.Map("/", (context) =>
 {
+    // Отримання шляху до HTML-файлу форми
     var htmlFilePath = Path.Combine(Directory.GetCurrentDirectory(), "html/form.html");
 
     if (File.Exists(htmlFilePath))
@@ -88,11 +94,13 @@ app.Map("/CheckCookieValue", (context) =>
     }
 });
 
+
 app.Map("/GenerateError", (context) =>
 {
     throw new Exception("Це тестова помилка!");
 });
 
+// Налаштування middleware, який записує інформацію про помилку до файлу логів
 app.UseExceptionHandler(app => app.Run(async context =>
 {
     File.WriteAllText(ErrorLogsFilePath, "Помилка під час виконання запиту " + currentTime);
