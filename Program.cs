@@ -1,13 +1,17 @@
 var builder = WebApplication.CreateBuilder();
 
+// Додання служб для ін'єкції залежностей: Book, User, UserService
 builder.Services.AddTransient<Book>();
 builder.Services.AddTransient<User>();
 builder.Services.AddSingleton<UserService>();
 
+// Додання конфігурації з файлу JSON для книг
 builder.Configuration.AddJsonFile("Config/Books/books.json");
 
 var app = builder.Build();
 var configuration = app.Services.GetService<IConfiguration>();
+
+// Отримання шляху до файла з користувачами
 var jsonFilePath = Path.Combine(Directory.GetCurrentDirectory(), "Config/Users");
 
 if (File.Exists(jsonFilePath))
@@ -19,8 +23,10 @@ app.Map(
     "/",
     async (context) =>
     {
+        // Встановлення типу контенту для відповіді
         context.Response.ContentType = "text/html; charset=utf-8"; // Встановлюємо тип контенту як HTML з кодуванням UTF-8
 
+        // Відправлення HTML з посиланням на сторінку бібліотеки
         await context.Response.WriteAsync("<a href='/Library/'>Перейти до бібліотеки</a><br>");
     }
 );
