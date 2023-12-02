@@ -1,158 +1,103 @@
-var builder = WebApplication.CreateBuilder();
-
-builder.Services.AddTransient<Book>();
-builder.Services.AddTransient<User>();
-builder.Services.AddSingleton<UserService>();
-
-builder.Configuration.AddJsonFile("Config/Books/books.json");
-
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDistributedMemoryCache();
 var app = builder.Build();
-var configuration = app.Services.GetService<IConfiguration>();
-var jsonFilePath = Path.Combine(Directory.GetCurrentDirectory(), "Config/Users");
 
-if (File.Exists(jsonFilePath))
+DateTime currentTime = DateTime.Now;
+var ErrorLogsFilePath = Path.Combine(Directory.GetCurrentDirectory(), "ErrorLog/ErrorLogs.txt");
+app.UseDeveloperExceptionPage();
+
+app.Map("/", (context) =>
 {
-    var jsonContent = File.ReadAllText(jsonFilePath);
-}
+    var htmlFilePath = Path.Combine(Directory.GetCurrentDirectory(), "html/form.html");
 
-app.Map(
-    "/",
-    async (context) =>
+    if (File.Exists(htmlFilePath))
     {
-        context.Response.ContentType = "text/html; charset=utf-8"; // Встановлюємо тип контенту як HTML з кодуванням UTF-8
+        var htmlContent = File.ReadAllText(htmlFilePath);
 
-        await context.Response.WriteAsync("<a href='/Library/'>Перейти до бібліотеки</a><br>");
+        return context.Response.WriteAsync(htmlContent);
     }
-);
-
-app.Map(
-    "/Library",
-    async (context) =>
+    else
     {
-        context.Response.ContentType = "text/html; charset=utf-8"; // Встановлюємо тип контенту як HTML з кодуванням UTF-8
+        context.Response.StatusCode = 404;
+        return Task.CompletedTask;
+    }
+});
 
-        await context.Response.WriteAsync("<p>Вітаємо в нашій бібліотеці! <br>");
-        await context.Response.WriteAsync("<a href='/Library/Books'>Перейти до книг</a><br>");
-        await context.Response.WriteAsync("<a href='/Library/Profile'>Перейти до профілю</a></p>");
+app.Map("/Submit", (context) =>
+{
+    var htmlFilePath = Path.Combine(Directory.GetCurrentDirectory(), "html/submit.html");
 
-        if (!context.Request.Cookies.ContainsKey("loggedIn"))
+    if (File.Exists(htmlFilePath))
+    {
+        var htmlContent = File.ReadAllText(htmlFilePath);
+
+        if (context.Request.Method == "POST")
         {
-            await context.Response.WriteAsync("<a href='/Login'>Увійти до системи</a></p>");
+            var inputValue = context.Request.Form["inputValue"];
+            var inputDateAndTime = DateTime.Parse(context.Request.Form["inputDateAndTime"]);
+
+            var cookieOptions = new CookieOptions
+            {
+                Expires = inputDateAndTime,
+                HttpOnly = false
+            };
+
+            context.Response.Cookies.Append("formData", inputValue, cookieOptions);
+
+            htmlContent = htmlContent.Replace("{{Message}}", "Дані були успішно збережені в Cookie.");
         }
         else
         {
-            await context.Response.WriteAsync("<a href='/Logout'>Вийти з системи</a></p>");
+            htmlContent = htmlContent.Replace("{{Message}}", "Неправильний метод запиту.");
         }
-    }
-);
-
-
-app.Map(
-    "/Library/books",
-    async (context) =>
-    {
-        var books = configuration.GetSection("Books").Get<List<Book>>();
 
         context.Response.ContentType = "text/html; charset=utf-8";
-        await context.Response.WriteAsync("<table border='1'>");
-        await context.Response.WriteAsync("<tr><th>Назва</th><th>Автор</th><th>Рік</th></tr>");
-
-        foreach (var book in books)
-        {
-            await context.Response.WriteAsync($"<tr><td>{book.Title}</td><td>{book.Author}</td><td>{book.Year}</td></tr>");
-        }
-
-        await context.Response.WriteAsync("</table><br>");
-        await context.Response.WriteAsync("<a href='/Library/'>На головну</a></p>");
+        return context.Response.WriteAsync(htmlContent);
     }
-);
-
-app.MapGet(
-    "/Library/Profile/{id:int?}",
-    async (HttpContext context, int? id, UserService userService) =>
+    else
     {
-        if (!id.HasValue)
+        context.Response.StatusCode = 404;
+        return Task.CompletedTask;
+    }
+});
+
+app.Map("/CheckCookieValue", (context) =>
+{
+    var htmlFilePath = Path.Combine(Directory.GetCurrentDirectory(), "html/checkCookieValue.html");
+
+    if (File.Exists(htmlFilePath))
+    {
+        var htmlContent = File.ReadAllText(htmlFilePath);
+
+        if (context.Request.Cookies.TryGetValue("formData", out var formData))
         {
-            // Якщо не вказано ID, перевіряємо авторизацію
-            if (!context.Request.Cookies.ContainsKey("loggedIn"))
-            {
-                context.Response.ContentType = "text/html; charset=utf-8";
-                await context.Response.WriteAsync("Жоден користувач не увійшов в систему.<br>");
-                await context.Response.WriteAsync("<a href='/Library/'>На головну</a></p>");
-                return;
-            }
-
-            var loggedInUserId = int.Parse(context.Request.Cookies["loggedIn"]);
-            var user = userService.GetUserById(loggedInUserId);
-
-            if (user != null)
-            {
-                context.Response.ContentType = "text/html; charset=utf-8";
-                await context.Response.WriteAsync($"Ім'я: {user.UserName}, Вік: {user.Age}, Олюблений жанр: {user.FavoriteGenre}<br>");
-                await context.Response.WriteAsync("<a href='/Library/'>На головну</a></p>");
-                return;
-            }
+            htmlContent = htmlContent.Replace("{{CookieValue}}", $"В Cookie були знайдені наступні значення: {formData}");
         }
         else
         {
-            var user = userService.GetUserById(id.Value);
-
-            if (user != null)
-            {
-                context.Response.ContentType = "text/html; charset=utf-8";
-                await context.Response.WriteAsync($"Ім'я: {user.UserName}, Вік: {user.Age}, Олюблений жанр: {user.FavoriteGenre}<br>");
-                await context.Response.WriteAsync("<a href='/Library/'>На головну</a></p>");
-                return;
-            }
+            htmlContent = htmlContent.Replace("{{CookieValue}}", "В Cookie не знайдено жодних значень.");
         }
 
         context.Response.ContentType = "text/html; charset=utf-8";
-        await context.Response.WriteAsync("Дані про користувача не знайдені.<br>");
-        await context.Response.WriteAsync("<a href='/Library/'>На головну</a></p>");
+        return context.Response.WriteAsync(htmlContent);
     }
-);
-
-app.MapGet(
-    "/Login/",
-    async (context) => {
-        context.Response.ContentType = "text/html; charset=utf-8";
-        await context.Response.WriteAsync("Введіть ваші дані в параметри сегментів маршруту - /Login/id/password");
-    }
-);
-
-app.MapGet(
-    "/Login/{id:int}/{pwd}",
-    async (HttpContext context, int id, string pwd, UserService userService) =>
+    else
     {
-
-        if (userService.AuthenticateUser(id, pwd))
-        {
-            var user = userService.GetUserById(id);
-            context.Response.Cookies.Append("loggedIn",  id.ToString());
-
-            context.Response.ContentType = "text/html; charset=utf-8";
-            await context.Response.WriteAsync($"Успішний вхід для користувача {user.UserName}!<br>");
-            await context.Response.WriteAsync("<a href='/Library/'>На головну</a></p>");
-        }
-        else
-        {
-            context.Response.ContentType = "text/html; charset=utf-8";
-            await context.Response.WriteAsync("Невірне ім'я користувача або пароль.<br>");
-            await context.Response.WriteAsync("<a href='/Library/'>На головну</a></p>");
-        }
+        context.Response.StatusCode = 404;
+        return Task.CompletedTask;
     }
-);
+});
 
-app.MapGet(
-    "/Logout",
-    async (HttpContext context) =>
-    {
-        context.Response.Cookies.Delete("loggedIn");
-        context.Response.ContentType = "text/html; charset=utf-8";
-        await context.Response.WriteAsync("Ви вийшли з системи.<br>");
-        await context.Response.WriteAsync("<a href='/Library/'>На головну</a></p>");
-    }
-);
+app.Map("/GenerateError", (context) =>
+{
+    throw new Exception("Це тестова помилка!");
+});
 
+app.UseExceptionHandler(app => app.Run(async context =>
+{
+    File.WriteAllText(ErrorLogsFilePath, "Помилка під час виконання запиту " + currentTime);
+    context.Response.StatusCode = 500;
+    await context.Response.WriteAsync("Error 500.");
+}));
 
 app.Run();

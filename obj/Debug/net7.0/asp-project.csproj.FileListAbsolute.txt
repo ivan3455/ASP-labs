@@ -23,13 +23,6 @@ C:\Mogyla\ASP.NET\AspProject\asp-project\obj\Debug\net7.0\refint\asp-project.dll
 C:\Mogyla\ASP.NET\AspProject\asp-project\obj\Debug\net7.0\asp-project.pdb
 C:\Mogyla\ASP.NET\AspProject\asp-project\obj\Debug\net7.0\asp-project.genruntimeconfig.cache
 C:\Mogyla\ASP.NET\AspProject\asp-project\obj\Debug\net7.0\ref\asp-project.dll
-C:\Mogyla\ASP.NET\AspProject\asp-project\bin\Debug\net7.0\Config\Books\books.json
-C:\Mogyla\ASP.NET\AspProject\asp-project\bin\Debug\net7.0\Config\Users\user_0.json
-C:\Mogyla\ASP.NET\AspProject\asp-project\bin\Debug\net7.0\Config\Users\user_1.json
-C:\Mogyla\ASP.NET\AspProject\asp-project\bin\Debug\net7.0\Config\Users\user_2.json
-C:\Mogyla\ASP.NET\AspProject\asp-project\bin\Debug\net7.0\Config\Users\user_3.json
-C:\Mogyla\ASP.NET\AspProject\asp-project\bin\Debug\net7.0\Config\Users\user_4.json
-C:\Mogyla\ASP.NET\AspProject\asp-project\bin\Debug\net7.0\Config\Users\user_5.json
 C:\Mogyla\ASP.NET\AspProject\asp-project\bin\Debug\net7.0\Newtonsoft.Json.dll
 C:\Mogyla\ASP.NET\AspProject\asp-project\obj\Debug\net7.0\asp-project.csproj.AssemblyReference.cache
 C:\Mogyla\ASP.NET\AspProject\asp-project\obj\Debug\net7.0\asp-project.csproj.CopyComplete
