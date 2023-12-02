@@ -2,6 +2,7 @@ public class CalcController
 {
     private CalcService calcService;
 
+    // Приймає CalcService для обробки математичних операцій
     public CalcController(CalcService calcService)
     {
         this.calcService = calcService;

@@ -1,5 +1,6 @@
 public class CurrentTimeService
-{
+{   
+     // Метод для отримання часу доби на основі поточного часу
     public string GetTimeOfDay()
     {
         DateTime current = DateTime.Now;

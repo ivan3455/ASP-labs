@@ -10,6 +10,7 @@ public class CalcService
         return a - b;
     }
 
+    // Викидає виключення, якщо друге число (b) дорівнює нулю
     public double Divide(double a, double b)
     {
         if (b == 0)

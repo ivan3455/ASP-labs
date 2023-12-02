@@ -1,6 +1,7 @@
 var builder = WebApplication.CreateBuilder();
 
-builder.Services.AddTransient<CalcService>();
+// Реєстрація служб через Dependency Injection (DI)
+builder.Services.AddTransient<CalcService>(); // Для кожного запиту на сервіс створюється новий екземпляр
 builder.Services.AddTransient<CurrentTimeService>();
 builder.Services.AddTransient<CalcController>();
 builder.Services.AddTransient<CurrentTimeController>();
@@ -11,7 +12,7 @@ app.Map("/calc", app =>
 {
     var calcController = app.ApplicationServices.GetRequiredService<CalcController>();
 
-    app.UseRouting();
+    app.UseRouting(); // Використання маршрутизації для опрацювання маршрутів
 
     app.UseEndpoints(endpoints =>
     {
@@ -21,6 +22,7 @@ app.Map("/calc", app =>
             double b = double.Parse(context.Request.RouteValues["b"].ToString());
             var result = calcController.Add(a, b);
 
+            // Налаштування відповіді з результатом операції додавання
             context.Response.ContentType = "text/plain; charset=utf-8";
             await context.Response.WriteAsync($"Результат додавання: {result}");
         });
@@ -61,7 +63,7 @@ app.Map("/time", app =>
 {
     var timeController = app.ApplicationServices.GetRequiredService<CurrentTimeController>();
 
-    app.UseRouting();
+    app.UseRouting(); // Використання маршрутизації для опрацювання маршрутів
 
     app.UseEndpoints(endpoints =>
     {
@@ -69,6 +71,7 @@ app.Map("/time", app =>
         {
             var timeOfDay = timeController.GetCurrentTimeOfDay();
 
+             // Налаштування відповіді з отриманим часом доби
             context.Response.ContentType = "text/plain; charset=utf-8";
             await context.Response.WriteAsync($"Поточний час дня: {timeOfDay}");
         });
