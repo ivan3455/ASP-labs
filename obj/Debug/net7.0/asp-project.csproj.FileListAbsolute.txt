@@ -26,3 +26,5 @@ C:\Mogyla\ASP.NET\AspProject\asp-project\obj\Debug\net7.0\ref\asp-project.dll
 C:\Mogyla\ASP.NET\AspProject\asp-project\bin\Debug\net7.0\Newtonsoft.Json.dll
 C:\Mogyla\ASP.NET\AspProject\asp-project\obj\Debug\net7.0\asp-project.csproj.AssemblyReference.cache
 C:\Mogyla\ASP.NET\AspProject\asp-project\obj\Debug\net7.0\asp-project.csproj.CopyComplete
+C:\Mogyla\ASP.NET\AspProject\asp-project\bin\Debug\net7.0\Config\Apple.json
+C:\Mogyla\ASP.NET\AspProject\asp-project\bin\Debug\net7.0\Config\User.json

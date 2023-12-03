@@ -1,111 +1,72 @@
-var builder = WebApplication.CreateBuilder(args);
-
-// Додання кешу в пам'яті до сервісів додатка
-builder.Services.AddDistributedMemoryCache();
+var builder = WebApplication.CreateBuilder();
 var app = builder.Build();
 
-// Отримання поточної дати та часу для використання у логах помилок
-DateTime currentTime = DateTime.Now;
+builder.Configuration.AddJsonFile("Config/User.json"); // Додавання конфігурації з файлу JSON
 
-// Визначення шляху до файлу журналу помилок
-var ErrorLogsFilePath = Path.Combine(Directory.GetCurrentDirectory(), "ErrorLog/ErrorLogs.txt");
-app.UseDeveloperExceptionPage();
+var configuration = app.Configuration;
+var service = new CompanyService(); // Створення сервісу для роботи з компаніями
 
-app.Map("/", (context) =>
-{
-    // Отримання шляху до HTML-файлу форми
-    var htmlFilePath = Path.Combine(Directory.GetCurrentDirectory(), "html/form.html");
+var apple = service.ReadJsonFile("Config/Apple.json");
+var google = service.ReadXmlFile("Config/Google.xml");
+var microsoft = service.ReadIniFile("Config/Microsoft.ini");
 
-    if (File.Exists(htmlFilePath))
+var companyWithMostEmployees = service.CompanyWithMostEmployees(apple, google, microsoft);
+
+app.MapGet(
+    "/",
+    async (context) =>
     {
-        var htmlContent = File.ReadAllText(htmlFilePath);
-
-        return context.Response.WriteAsync(htmlContent);
+        context.Response.ContentType = "text/html; charset=utf-8";
+        await context
+            .Response
+            .WriteAsync("<a href='/user'>Перейти до інформації про користувача</a><br>");
+        await context
+            .Response
+            .WriteAsync("<a href='/companies'>Перейти до інформації про комапнії</a><br>");
     }
-    else
+);
+
+app.MapGet(
+    "/user",
+    async (context) =>
     {
-        context.Response.StatusCode = 404;
-        return Task.CompletedTask;
-    }
-});
-
-app.Map("/Submit", (context) =>
-{
-    var htmlFilePath = Path.Combine(Directory.GetCurrentDirectory(), "html/submit.html");
-
-    if (File.Exists(htmlFilePath))
-    {
-        var htmlContent = File.ReadAllText(htmlFilePath);
-
-        if (context.Request.Method == "POST")
-        {
-            var inputValue = context.Request.Form["inputValue"];
-            var inputDateAndTime = DateTime.Parse(context.Request.Form["inputDateAndTime"]);
-
-            var cookieOptions = new CookieOptions
-            {
-                Expires = inputDateAndTime,
-                HttpOnly = false
-            };
-
-            context.Response.Cookies.Append("formData", inputValue, cookieOptions);
-
-            htmlContent = htmlContent.Replace("{{Message}}", "Дані були успішно збережені в Cookie.");
-        }
-        else
-        {
-            htmlContent = htmlContent.Replace("{{Message}}", "Неправильний метод запиту.");
-        }
+        var user = configuration.Get<User>();
 
         context.Response.ContentType = "text/html; charset=utf-8";
-        return context.Response.WriteAsync(htmlContent);
+        await context
+            .Response
+            .WriteAsync(
+                $"{user.Name} {user.Surname}<br>Вік: {user.Age}<br> Країна: {user.Country_of_birth}"
+            );
     }
-    else
+);
+
+app.MapGet(
+    "/companies",
+    async (context) =>
     {
-        context.Response.StatusCode = 404;
-        return Task.CompletedTask;
-    }
-});
-
-app.Map("/CheckCookieValue", (context) =>
-{
-    var htmlFilePath = Path.Combine(Directory.GetCurrentDirectory(), "html/checkCookieValue.html");
-
-    if (File.Exists(htmlFilePath))
-    {
-        var htmlContent = File.ReadAllText(htmlFilePath);
-
-        if (context.Request.Cookies.TryGetValue("formData", out var formData))
-        {
-            htmlContent = htmlContent.Replace("{{CookieValue}}", $"В Cookie були знайдені наступні значення: {formData}");
-        }
-        else
-        {
-            htmlContent = htmlContent.Replace("{{CookieValue}}", "В Cookie не знайдено жодних значень.");
-        }
-
         context.Response.ContentType = "text/html; charset=utf-8";
-        return context.Response.WriteAsync(htmlContent);
+        var companyList = new List<Company> { apple, google, microsoft }; // Список всіх компаній
+        context.Response.ContentType = "text/html; charset=utf-8";
+        await context.Response.WriteAsync("<h1>Інформація про компанії</h1>");
+
+        foreach (var company in companyList)
+        {
+            await context
+                .Response
+                .WriteAsync(
+                    $"Назва: {company.Company_name}<br>"
+                        + $"Кількість співробітників: {company.Number_of_employees}<br>"
+                        + $"Країна: {company.Country_of_origin}<br><br>"
+                );
+        }
+        await context
+            .Response
+            .WriteAsync(
+                $"Найбільше співробітників у компанії - {companyWithMostEmployees.Company_name}<br>"
+                    + $"Кількість співробітників: {companyWithMostEmployees.Number_of_employees}"
+            );
     }
-    else
-    {
-        context.Response.StatusCode = 404;
-        return Task.CompletedTask;
-    }
-});
-
-
-app.Map("/GenerateError", (context) =>
-{
-    throw new Exception("Це тестова помилка!");
-});
-
-// Налаштування middleware, який записує інформацію про помилку до файлу логів
-app.UseExceptionHandler(app => app.Run(async context =>
-{
-    File.WriteAllText(ErrorLogsFilePath, "Помилка під час виконання запиту " + currentTime);
-    context.Response.StatusCode = 500;
-    await context.Response.WriteAsync("Error 500.");
-}));
+);
 
 app.Run();
