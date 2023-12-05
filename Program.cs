@@ -9,6 +9,8 @@ DateTime currentTime = DateTime.Now;
 
 // Визначення шляху до файлу журналу помилок
 var ErrorLogsFilePath = Path.Combine(Directory.GetCurrentDirectory(), "ErrorLog/ErrorLogs.txt");
+
+// Для відображення помилки в браузері
 app.UseDeveloperExceptionPage();
 
 app.Map("/", (context) =>
