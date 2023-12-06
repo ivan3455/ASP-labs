@@ -1,0 +1,19 @@
+@model PizzaApp.Models.User
+<link rel="stylesheet" href="~/css/styles.css" />
+
+<h2>Вітаємо!</h2>
+<h3>Будь ласка, оберіть піцци для замовлення:</h3>
+<form asp-action="OrderPizza" method="post">
+    @for (var i = 0; i < Model.Products.Count; i++)
+    {
+        <div class="form-group">
+            <label asp-for="Products[i].Name">Назва:</label>
+            <input asp-for="Products[i].Name" class="form-control" readonly />
+            <label asp-for="Products[i].Price">Ціна:</label>
+            <input asp-for="Products[i].Price" class="form-control" readonly />
+            <label asp-for="Products[i].Quantity">Кількість:</label>
+            <input asp-for="Products[i].Quantity" class="form-control" />
+        </div>
+    }
+    <button type="submit" class="btn btn-primary">Створити замовлення</button>
+</form>

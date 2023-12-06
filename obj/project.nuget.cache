@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "D6IAlRhc+UKjM9SUUuc6mznlfxcVAzgDKjJVGNGSeJyU0T1LDvkuH4ELa12CI3/Q7wNpA8kdObg2hm2bzK0Kbg==",
+  "dgSpecHash": "u2TQWtusdZrcnCfctuZEs5kltkwBNhg8qWxgsYiMFS9+ax/bd3pd/D7nQ+cPtMoxKukgfuILJCrFQDGi28NKPQ==",
   "success": true,
-  "projectFilePath": "C:\\Mogyla\\ASP.NET\\AspProject\\asp-project\\Asp-labs\\AspNetMVC.csproj",
+  "projectFilePath": "C:\\Mogyla\\ASP.NET\\AspProject\\asp-project\\Asp-labs\\asp-project.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

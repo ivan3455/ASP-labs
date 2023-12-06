@@ -1,0 +1,33 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = asp_project
+build_property.RootNamespace = asp_project
+build_property.ProjectDir = C:\Mogyla\ASP.NET\AspProject\asp-project\Asp-labs\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Mogyla\ASP.NET\AspProject\asp-project\Asp-labs
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Mogyla/ASP.NET/AspProject/asp-project/Asp-labs/Views/Product/OrderPizza.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxPcmRlclBpenphLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Mogyla/ASP.NET/AspProject/asp-project/Asp-labs/Views/Product/OrderSummary.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxPcmRlclN1bW1hcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Mogyla/ASP.NET/AspProject/asp-project/Asp-labs/Views/Product/RegisterUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxSZWdpc3RlclVzZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Mogyla/ASP.NET/AspProject/asp-project/Asp-labs/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 

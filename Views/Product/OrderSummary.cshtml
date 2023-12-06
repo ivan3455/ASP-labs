@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="~/css/styles.css" />
+
+<h2>Дякуємо за замовлення!</h2>
+
+@{
+    decimal totalAmount = 0;
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Піцца</th>
+            <th>Кільксть</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model.Products)
+        {
+            if (product.Quantity > 0)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Quantity</td>
+                </tr>
+                totalAmount += product.Price * product.Quantity;
+            }
+        }
+    </tbody>
+</table>
+
+<p>Загальна сума замовлення: @totalAmount</p>

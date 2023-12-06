@@ -4,31 +4,23 @@ using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Додавання сервісу контролерів і Views
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseDeveloperExceptionPage();
-}
-else
-{
-    app.UseExceptionHandler("/Home/Error");
-    app.UseHsts();
-}
-
-app.UseHttpsRedirection();
+// Дозвіл на використання статичних файлів (css)
 app.UseStaticFiles();
 
 app.UseRouting();
 
 app.UseEndpoints(endpoints =>
 {
+    // Маршрут за замовчуванням для контролера Product та дії RegisterUser
+    // Перехід здійснюється при старті додатку
     endpoints.MapControllerRoute(
         name: "default",
-        pattern: "{controller=Pizza}/{action=RegisterUser}/{id?}");
+        pattern: "{controller=Product}/{action=RegisterUser}/{id?}");
 });
 
 app.Run();
-
