@@ -4,36 +4,23 @@ using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Додавання контролерів і View)
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseDeveloperExceptionPage();
-}
-else
-{
-    app.UseExceptionHandler("/Home/Error");
-    app.UseHsts();
-}
-
-app.UseHttpsRedirection();
+// Дозвіл для статичних файлів (сss)
 app.UseStaticFiles();
 
 app.UseRouting();
 
 app.UseEndpoints(endpoints =>
 {
+    // Маршрут для завантаження файлу
     endpoints.MapControllerRoute(
         name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}");
-
-    endpoints.MapControllerRoute(
-        name: "download-file",
-        pattern: "File/DownloadFile",
-        defaults: new { controller = "File", action = "Index" });
+        pattern: "{controller=File}/{action=DownloadFile}/{id?}"
+    );
 });
 
 app.Run();
-

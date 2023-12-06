@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "Hash": "6glkSjevwzBXAlvrCvPOZkydSYnWbGlB8hEp87+mPwY=",
+  "Source": "asp-project",
+  "BasePath": "_content/asp-project",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "asp-project\\wwwroot",
+      "Source": "asp-project",
+      "ContentRoot": "C:\\Mogyla\\ASP.NET\\AspProject\\asp-project\\Asp-labs\\wwwroot\\",
+      "BasePath": "_content/asp-project",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Mogyla\\ASP.NET\\AspProject\\asp-project\\Asp-labs\\wwwroot\\css\\style.css",
+      "SourceId": "asp-project",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Mogyla\\ASP.NET\\AspProject\\asp-project\\Asp-labs\\wwwroot\\",
+      "BasePath": "_content/asp-project",
+      "RelativePath": "css/style.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\style.css"
+    },
+    {
+      "Identity": "C:\\Mogyla\\ASP.NET\\AspProject\\asp-project\\Asp-labs\\wwwroot\\downloads\\my_first_file.txt",
+      "SourceId": "asp-project",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Mogyla\\ASP.NET\\AspProject\\asp-project\\Asp-labs\\wwwroot\\",
+      "BasePath": "_content/asp-project",
+      "RelativePath": "downloads/my_first_file.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\downloads\\my_first_file.txt"
+    }
+  ]
+}

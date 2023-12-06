@@ -1,5 +1,5 @@
 ﻿
-namespace AspNetMVC.Models
+namespace CreateFile.Models
 {
     public class FileViewModel
     {

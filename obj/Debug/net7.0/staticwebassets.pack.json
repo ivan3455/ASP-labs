@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Mogyla\\ASP.NET\\AspProject\\asp-project\\Asp-labs\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "C:\\Mogyla\\ASP.NET\\AspProject\\asp-project\\Asp-labs\\wwwroot\\downloads\\my_first_file.txt",
+      "PackagePath": "staticwebassets\\downloads\\my_first_file.txt"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.asp-project.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.asp-project.props",
+      "PackagePath": "build\\asp-project.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.asp-project.props",
+      "PackagePath": "buildMultiTargeting\\asp-project.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.asp-project.props",
+      "PackagePath": "buildTransitive\\asp-project.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
