@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RlCeZGDKY3J7wM709mlAqYOdrWAzDAGiDjcGtIYJB28=",
+  "Hash": "tCUvgjbK21a/YDgaaXAfHjLZIx7Kzb0WoKYaHKnkkdk=",
   "Source": "AspNetMVC",
   "BasePath": "_content/AspNetMVC",
   "Mode": "Default",
@@ -66,40 +66,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
-    },
-    {
-      "Identity": "C:\\Mogyla\\ASP.NET\\AspProject\\asp-project\\Asp-labs\\wwwroot\\downloads\\123.txt",
-      "SourceId": "AspNetMVC",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Mogyla\\ASP.NET\\AspProject\\asp-project\\Asp-labs\\wwwroot\\",
-      "BasePath": "_content/AspNetMVC",
-      "RelativePath": "downloads/123.txt",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\downloads\\123.txt"
-    },
-    {
-      "Identity": "C:\\Mogyla\\ASP.NET\\AspProject\\asp-project\\Asp-labs\\wwwroot\\downloads\\1234.txt",
-      "SourceId": "AspNetMVC",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Mogyla\\ASP.NET\\AspProject\\asp-project\\Asp-labs\\wwwroot\\",
-      "BasePath": "_content/AspNetMVC",
-      "RelativePath": "downloads/1234.txt",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\downloads\\1234.txt"
     },
     {
       "Identity": "C:\\Mogyla\\ASP.NET\\AspProject\\asp-project\\Asp-labs\\wwwroot\\favicon.ico",
