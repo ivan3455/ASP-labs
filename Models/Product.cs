@@ -1,5 +1,6 @@
 ﻿namespace AspNetMVC.Models
 {
+    // Product.cs
     public class Product
     {
         public int ID { get; set; }

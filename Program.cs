@@ -1,3 +1,7 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Hosting;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
@@ -26,9 +30,14 @@ app.UseEndpoints(endpoints =>
         pattern: "{controller=Home}/{action=Index}/{id?}");
 
     endpoints.MapControllerRoute(
+        name: "download-file",
+        pattern: "File/DownloadFile",
+        defaults: new { controller = "File", action = "Index" });
+
+    endpoints.MapControllerRoute(
         name: "product",
-        pattern:"Product/ProductList",
-        defaults: new { controller = "Product", action = "ProductList" });
+        pattern:"Product/Index",
+        defaults: new { controller = "Product", action = "Index" });
 
 });
 

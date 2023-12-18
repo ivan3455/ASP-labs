@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Mogyla\\ASP.NET\\8\\ASP-labs\\lr_8.csproj": {}
+    "C:\\Mogyla\\ASP.NET\\AspProject\\asp-project\\ASP-labs\\lr_8.csproj": {}
   },
   "projects": {
-    "C:\\Mogyla\\ASP.NET\\8\\ASP-labs\\lr_8.csproj": {
+    "C:\\Mogyla\\ASP.NET\\AspProject\\asp-project\\ASP-labs\\lr_8.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Mogyla\\ASP.NET\\8\\ASP-labs\\lr_8.csproj",
+        "projectUniqueName": "C:\\Mogyla\\ASP.NET\\AspProject\\asp-project\\ASP-labs\\lr_8.csproj",
         "projectName": "lr_8",
-        "projectPath": "C:\\Mogyla\\ASP.NET\\8\\ASP-labs\\lr_8.csproj",
+        "projectPath": "C:\\Mogyla\\ASP.NET\\AspProject\\asp-project\\ASP-labs\\lr_8.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Mogyla\\ASP.NET\\8\\ASP-labs\\obj\\",
+        "outputPath": "C:\\Mogyla\\ASP.NET\\AspProject\\asp-project\\ASP-labs\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -43,6 +43,12 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
