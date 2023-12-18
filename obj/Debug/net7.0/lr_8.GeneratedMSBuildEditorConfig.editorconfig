@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Mogyla\ASP.NET\AspProject\asp-project\ASP-labs
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Mogyla/ASP.NET/AspProject/asp-project/ASP-labs/Views/Consultation/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uc3VsdGF0aW9uXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Mogyla/ASP.NET/AspProject/asp-project/ASP-labs/Views/File/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlsZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

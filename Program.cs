@@ -29,16 +29,6 @@ app.UseEndpoints(endpoints =>
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");
 
-    endpoints.MapControllerRoute(
-        name: "download-file",
-        pattern: "File/DownloadFile",
-        defaults: new { controller = "File", action = "Index" });
-
-    endpoints.MapControllerRoute(
-        name: "product",
-        pattern:"Product/Index",
-        defaults: new { controller = "Product", action = "Index" });
-
 });
 
 app.Run();
