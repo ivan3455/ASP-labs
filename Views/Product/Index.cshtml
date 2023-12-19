@@ -1,27 +1,32 @@
 ﻿﻿@using AspNetMVC.Models
+
 @{
+    List<ProductModel> products = new List<ProductModel>(); // Створення списку продуктів
 
-    List<ProductModel> products = new List<ProductModel>();
-
-
-    products.Add(new ProductModel { ID = 1, Name = "Продукт 1", Price = 10.99M });
-    products.Add(new ProductModel { ID = 2, Name = "Продукт 2", Price = 19.99M });
-    products.Add(new ProductModel { ID = 3, Name = "Продукт 3", Price = 5.49M });
-
+    // Додавання об'єктів ProductModel до списку продуктів
+    products.Add(new ProductModel { ID = 1, Name = "Product 1", Price = 177.99M });
+    products.Add(new ProductModel { ID = 2, Name = "Product 2", Price = 299.99M });
+    products.Add(new ProductModel { ID = 3, Name = "Product 3", Price = 49.99M });
+    products.Add(new ProductModel { ID = 4, Name = "Product 4", Price = 110.99M });
+    products.Add(new ProductModel { ID = 5, Name = "Product 5", Price = 109.99M });
+    products.Add(new ProductModel { ID = 6, Name = "Product 6", Price = 54.49M });
 }
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta content="width=device-width" />
     <title>Завдання</title>
     <link rel="stylesheet" href="~/css/style.css" />
 </head>
+
 <body>
     <div>
-        @await Component.InvokeAsync("Product", new {products=products})
+        @await Component.InvokeAsync("Product", new { products = products })
     </div>
     <div>
-        @await Component.InvokeAsync("Weather", new {region="Odesa"})
+        @await Component.InvokeAsync("Weather", new { region = "Kiev" })
     </div>
 </body>
+
 </html>

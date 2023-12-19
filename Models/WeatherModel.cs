@@ -1,4 +1,5 @@
 ﻿﻿using Newtonsoft.Json;
+
 namespace AspNetMVC.Models
 {
     public class WeatherModel
