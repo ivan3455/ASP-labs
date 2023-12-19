@@ -7,10 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews(options =>
 {
-    // ��������� ������� LogActionFilter
     options.Filters.Add(typeof(LogActionFilter));
 
-    // ��������� ������� UniqueUsersFilter
     options.Filters.Add(typeof(UniqueUsersFilter));
 });
 
@@ -39,5 +37,4 @@ app.UseEndpoints(endpoints =>
 
 });
 
-app.Run();
-
+app.Run(); // Запуск додатку

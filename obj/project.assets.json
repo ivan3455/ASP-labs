@@ -61,9 +61,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Mogyla\\ASP.NET\\AspProject\\asp-project\\ASP-labs\\lr_8.csproj",
-      "projectName": "lr_8",
-      "projectPath": "C:\\Mogyla\\ASP.NET\\AspProject\\asp-project\\ASP-labs\\lr_8.csproj",
+      "projectUniqueName": "C:\\Mogyla\\ASP.NET\\AspProject\\asp-project\\ASP-labs\\lr_11.csproj",
+      "projectName": "lr_11",
+      "projectPath": "C:\\Mogyla\\ASP.NET\\AspProject\\asp-project\\ASP-labs\\lr_11.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
       "outputPath": "C:\\Mogyla\\ASP.NET\\AspProject\\asp-project\\ASP-labs\\obj\\",
       "projectStyle": "PackageReference",

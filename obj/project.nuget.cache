@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KlWrE/qgIngcGwRuvG9euwRN2qTdroM+Ds1vthIcqXxEaGZLK5yzBZZemzGkYw9TgVc/HEuBDwzJFz193kbYIQ==",
+  "dgSpecHash": "yjI1L2Gw5kO1sFGkNW/m7lm7njIqmto4E3ZFHc61WgZnEAxWuVNcgYg3fNpZ9JxuojPj7HOAEDbz+0ENVbxB9g==",
   "success": true,
-  "projectFilePath": "C:\\Mogyla\\ASP.NET\\AspProject\\asp-project\\ASP-labs\\lr_8.csproj",
+  "projectFilePath": "C:\\Mogyla\\ASP.NET\\AspProject\\asp-project\\ASP-labs\\lr_11.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],

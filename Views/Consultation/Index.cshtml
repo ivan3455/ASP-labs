@@ -1,10 +1,10 @@
 ﻿@model ConsultationModel
 
-<h2>Форма Реєстрації на Консультацію</h2>
+<h2>Реєстрація на консультацію</h2>
 
 <form method="post" asp-controller="Consultation" asp-action="Consultation">
     <div class="form-group">
-        <label asp-for="Name">Ім'я прізвище:</label>
+        <label asp-for="Name">Ваше ім'я:</label>
         <input asp-for="Name" class="form-control" placeholder="required field for input" />
         <span asp-validation-for="Name" class="text-danger"></span>
     </div>
@@ -22,7 +22,7 @@
     </div>
 
     <div class="form-group">
-        <label asp-for="SelectedProduct">Виберіть продукт для консультації:</label>
+        <label asp-for="SelectedProduct">Продукт для консультації:</label>
         <select asp-for="SelectedProduct" class="form-control">
             <option value="">Select a product</option>
             <option value="JavaScript">JavaScript</option>

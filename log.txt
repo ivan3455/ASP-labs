@@ -1,5 +1,3 @@
-﻿Action 'AspNetMVC.Controllers.HomeController.Index (lr_8)' accessed at 19.12.2023 05:16:46
-Action 'AspNetMVC.Controllers.HomeController.Index (lr_8)' accessed at 19.12.2023 05:17:57
-Action 'ConsultationController.Index (lr_8)' accessed at 19.12.2023 05:17:59
-Action 'AspNetMVC.Controllers.ProductController.Index (lr_8)' accessed at 19.12.2023 05:18:00
-Action 'AspNetMVC.Controllers.HomeController.Index (lr_8)' accessed at 19.12.2023 05:18:01
+﻿Action 'AspNetMVC.Controllers.HomeController.Index (lr_11)' accessed at 19.12.2023 10:05:36
+Action 'AspNetMVC.Controllers.HomeController.Index (lr_11)' accessed at 19.12.2023 10:05:40
+Action 'ConsultationController.Index (lr_11)' accessed at 19.12.2023 10:05:41
