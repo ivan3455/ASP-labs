@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
-
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -27,9 +26,8 @@ app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(
         name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}");
-
+        pattern: "{controller=Home}/{action=Index}/{id?}"
+    );
 });
 
-app.Run();
-
+app.Run(); // Запуск додатку

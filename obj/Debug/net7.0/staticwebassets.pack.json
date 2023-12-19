@@ -1,8 +1,8 @@
 {
   "Files": [
     {
-      "Id": "C:\\Mogyla\\ASP.NET\\AspProject\\asp-project\\ASP-labs\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\lr_8.bundle.scp.css",
-      "PackagePath": "staticwebassets\\lr_8.bundle.scp.css"
+      "Id": "C:\\Mogyla\\ASP.NET\\AspProject\\asp-project\\ASP-labs\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\lr_10.bundle.scp.css",
+      "PackagePath": "staticwebassets\\lr_10.bundle.scp.css"
     },
     {
       "Id": "C:\\Mogyla\\ASP.NET\\AspProject\\asp-project\\ASP-labs\\wwwroot\\css\\site.css",
@@ -245,19 +245,19 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.lr_8.props",
-      "PackagePath": "build\\lr_8.props"
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.lr_10.props",
+      "PackagePath": "build\\lr_10.props"
     },
     {
-      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.lr_8.props",
-      "PackagePath": "buildMultiTargeting\\lr_8.props"
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.lr_10.props",
+      "PackagePath": "buildMultiTargeting\\lr_10.props"
     },
     {
-      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.lr_8.props",
-      "PackagePath": "buildTransitive\\lr_8.props"
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.lr_10.props",
+      "PackagePath": "buildTransitive\\lr_10.props"
     },
     {
-      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.lr_8.Microsoft.AspNetCore.StaticWebAssets.props",
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.lr_10.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     }
   ],
